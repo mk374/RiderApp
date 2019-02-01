@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ride Organizer</title>
+
+    <!-- include only the Firebase features as you need -->
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-functions.js"></script>
+
+
+  </head>
+  <body>
+
+    <ul class="nav nav-tabs">
+		  <li role="presentation" ><a href="index.html">Home</a></li>
+		  <li role="presentation" class = "active"><a href="leech.html">Leech</a></li>
+		  <li role="presentation"><a href="driver.html">Driver</a></li>
+		</ul>
+
+    <h1 id = "leechesRides"> </h1>
+
+    <div class="content">
+
+
+      <ul id="student-location-list"></ul>
+
+
+        <!-- <form id="add-location-form">
+          <input type = "text" name = "location" placeholder = "Location">
+          <input type = "text" name = "time" placeholder = "Time Available">
+          <button> Add </button>
+        </form>
+
+        <ul id="location-list"></ul> -->
+
+    </div>
+
+
+
+
+
+
+           <script>
+             // Initialize Firebase
+             var config = {
+               apiKey: "AIzaSyBJrIcSMKHi7iRfa_v4UY2YsHzqCSOLIm8",
+               authDomain: "someproject-cf13b.firebaseapp.com",
+               databaseURL: "https://someproject-cf13b.firebaseio.com",
+               projectId: "someproject-cf13b",
+               storageBucket: "someproject-cf13b.appspot.com",
+               messagingSenderId: "793760895039"
+             };
+
+             firebase.initializeApp(config);
+             const db = firebase.firestore();
+             db.settings({ timestampsInSnapshots: true });
+           </script>
+           <script src="leechRideOrganizer.js"></script>
+
+
+           <script>
+            var tempLeechU = sessionStorage.getItem('leechTempName');
+
+            document.getElementById('leechesRides').innerHTML = "Hello Leeches of " + tempLeechU + ". Please indicate which location/time is good for you!";
+
+
+           </script>
+       </body>
+   </html>
